@@ -31,7 +31,7 @@ onMounted(() => {
 });
 
 const goBack = () => {
-    navigateTo("/products/recipe_memo");
+    return navigateTo("/products/recipe_memo");
 }
 
 </script>
@@ -47,7 +47,7 @@ const goBack = () => {
         </div>
         <AppH3>レシピを書く</AppH3>
         <RecipeForm
-            v-bind:id="v4"
+            v-bind:id="v4()"
             redirectOnSuccess="/products/recipe_memo"
             v-model="form">
         </RecipeForm>       

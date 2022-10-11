@@ -73,13 +73,20 @@ const submit = () => {
         });
         putRequest.onsuccess = () => {
             alert("保存に成功しました");
-            navigateTo(props.redirectOnSuccess);
+            return navigateTo(props.redirectOnSuccess);
         };
         putRequest.onerror = () => {
             alert("保存に失敗しました");
         };
     }
 };
+
+//todo debug
+onMounted(() => {
+//    console.log("RecipeForm mounted");
+//    console.log(props);
+});
+
 </script>
 <template>
     <div class="grid gap-8">
