@@ -1,4 +1,11 @@
 <script setup lang="ts">
+//refは状態を定義するメソッド
+//reactiveと似ている。
+//reactiveとの違い
+//reactiveは常にvalue経由でアクセスに対して、
+//refはscript内ではvalue経由、template内では直接アクセス
+//refはプリミティブな値を状態として定義できるが、reactiveはオブジェクトのみ
+//全部refでも構わないが、全部reactiveは避けたほうが良い（プリミティブ型利用できないので）
 const links = ref<{
     url: string;
     text: string;

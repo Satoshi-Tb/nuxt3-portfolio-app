@@ -37,10 +37,10 @@ const addItem = () => {
 const dbName = "recipe-memo";
 const tableName = "recipe";
 const submit = () => {
-    const {name, items, howToCook: howToCock} = form.value;
+    const {name, items, howToCook: howToCook} = form.value;
 
     if (!name 
-        || !howToCock 
+        || !howToCook 
         || items.some(item => !item.name || !Number.isFinite(item.amount) || !item.unit)) {
         alert("いずれかのフォームが空白です");
         return;
@@ -69,7 +69,7 @@ const submit = () => {
                 amount: item.amount,
                 unit: item.unit
             })),
-            howToCock
+            howToCook: howToCook
         });
         putRequest.onsuccess = () => {
             alert("保存に成功しました");
