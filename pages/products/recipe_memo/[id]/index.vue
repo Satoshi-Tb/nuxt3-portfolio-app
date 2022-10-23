@@ -11,7 +11,22 @@ const tableName = "recipe";
 const record = ref<RecipeEntity | null>(null);
 
 const deleteItem = () => {
-  console.log("未実装");
+  if (!confirm(`このレシピを本当に削除してもよろしいですか？`)) return;
+
+  const openRequest = indexedDB.open(dbName);
+
+  openRequest.onsuccess = (evt) => {
+    const db = (evt.target as IDBRequest).result;
+    const transaction = db.transaction(tableName, "readwrite");
+    const table = transaction.objectStore(tableName) as IDBObjectStore;
+
+    const deleteRequest = table.delete(id);
+
+    deleteRequest.onsuccess = () => {
+      alert("削除に成功しました");
+      return navigateTo("/products/recipe_memo");
+    };
+  };
 };
 const goWrite = () => {
   return navigateTo(`/products/recipe_memo/${id}/write`);
