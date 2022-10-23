@@ -16,7 +16,7 @@ const links = [
 </script>
 <template>
   <PageContainer>
-    <ApppH2>トップページ</ApppH2>
+    <AppH2>トップページ</AppH2>
     <AppLink v-bind:links="links" />
   </PageContainer>
 </template>
